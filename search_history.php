@@ -18,6 +18,10 @@
         'firma-desc' => 'obchodni_firma DESC'
     ];
 
+    if(!isset($_COOKIE['sort'])){
+        setcookie('sort', $sort_classes_dict['date-asc']);
+    }
+
     $page = 1;
     if (isset($_GET['page']))
     {
@@ -26,7 +30,8 @@
 
 
     $db_info = Database::InfoForConnection();
-    class_alias('\RedBeanPHP\R', '\R');
+    class_alias('\RedBeanPHP\R', 'R');
+
     R::setup($db_info['dsn'], $db_info['username'], $db_info['password']);
 
     $total_pages = ceil(R::count('infofirma') / 3);
@@ -88,7 +93,7 @@
         echo '
         <div class="card text-center" style="margin-bottom: 20px">
   <div class="card-header">
-    ' . $item->obchodni_firma . '
+    <h5>' . $item->obchodni_firma . '</h5>
   </div>
   <div class="card-body">
     <p class="card-text"><b>Datum vzniku: </b>' . $item->datum_vzniku . '</p>
