@@ -1,5 +1,6 @@
 <html>
 <head>
+    <title>History of searching</title>
     <?php include('template/head.html') ?>
 </head>
 <body>

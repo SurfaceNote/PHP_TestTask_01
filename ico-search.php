@@ -1,5 +1,6 @@
 <html>
 <head>
+    <title>Result of searching</title>
     <?php include('template/head.html') ?>
 </head>
 <body>
@@ -33,7 +34,6 @@
         $dom->loadXML($response);
         $xpath = new DomXPath($dom);
 
-// echo $xpath->query("//are:Adresa_ARES/dtt:Nazev_okresu/text()")->item(0)->wholeText;
         $pocet_zaznamu = $xpath->query("//are:Pocet_zaznamu/text()")->item(0)->wholeText;
         if ($pocet_zaznamu != 0)
         {
@@ -44,7 +44,8 @@
             $ico = $_POST['ico'];
             $date_time_search = date("d-m-Y H:i:s");
 
-            echo "<div style='margin-top: 20px'>
+            echo "
+<div style='margin-top: 20px'>
 <p><b>Obchodní firma: </b>$obchodni_firma</p>
 <p><b>Datum vzniku: </b>$datum_vzniku</p>
 <p><b>Název okresu: </b>$name_of_okres</p>

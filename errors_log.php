@@ -1,5 +1,6 @@
 <html>
 <head>
+    <title>Errors log</title>
     <?php include('template/head.html') ?>
 </head>
 <body>
@@ -16,7 +17,7 @@
         'ORDER BY date_time_search');
     foreach ($all as $item)
     {
-        echo '<p><b>IČO: </b>'.$item->ico.' <br><b>Date: </b>'.$item->date_time_search.'</p>';
+        echo '<p><b>IČO: </b>' . $item->ico . ' <br><b>Date: </b>' . $item->date_time_search . '</p>';
     }
     ?>
 </div>
